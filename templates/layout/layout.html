@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Egso Company Limited{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'layout/css/app.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'layout/css/custom.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'layout/font-awesome/css/font-awesome.min.css' %}" type="text/css">
+    <script src="{% static 'layout/js/jquery.min.js' %}"></script>
+    <script src="{% static 'layout/js/js-image-slider.js' %}"></script>
+    <script src="{% static 'layout/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'layout/js/main.js' %}"></script>
+</head>
+<body>
+{% block header %}
+    <div class="header-one">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-md-2 hidden-sm">
+                    <div class="welcome">
+                        <img src="{% static 'layout/img/ep.png' %}" alt="logo">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-7">
+                    <div class="comp-name">
+                        <h1>EGSO COMPANY LIMITED</h1>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-5">
+                    <div class="emails">
+                        <h4><i class="fa fa-envelope"></i>egso@gmail.com</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block navigation %}
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'index:index' %}">EGSO</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav" id="navigation">
+                    {% url 'index:index' as index %}
+                    <li {% if request.path == index %} class="active" {% endif %}><a href="{% url 'index:index' %}">home<span class="sr-only">(current)</span></a></li>
+                    {% url 'about:about' as about %}
+                    <li {% if request.path == about %} class="active" {% endif %}><a href="{% url 'about:about' %}">about us</a></li>
+
+                    {% url 'services:manufacturing' as manufacturing %}
+                    {% url 'services:building' as building %}
+                    {% url 'services:structural' as structural %}
+                    {% url 'services:quantity' as quantity %}
+                    {% url 'services:road' as road %}
+                    {% url 'services:information' as information %}
+
+                    {% url 'services:graphics' as graphics %}
+                    {% url 'services:servicing' as servicing %}
+                    {% url 'services:software' as programming %}
+                    {% url 'services:networking' as networking %}
+
+                    {% url 'services:land' as land %}
+
+                    {% url 'services:cadastral' as cadastral %}
+                    {% url 'services:topographical' as topographical %}
+                    {% url 'services:setting' as setting %}
+                    {% url 'services:leveling' as leveling %}
+                    {% url 'services:base-map' as baseMap %}
+                    {% url 'services:map-making' as mapMaking %}
+                    {% url 'services:farm-survey' as farmSurvey %}
+                    {% url 'services:farm-land' as farmLand %}
+                    {% url 'services:geographical' as geographical %}
+                    {% url 'services:database' as database %}
+                    {% url 'services:land-marketing' as landMarketing %}
+                    {% url 'services:general-consultancy' as generalConsultancy %}
+                    {% url 'services:printing' as printing %}
+
+                    <li class="
+                    {% if request.path == manufacturing %} active {% endif %}
+                    {% if request.path == building %} active {% endif %}
+                    {% if request.path == structural %} active {% endif %}
+                    {% if request.path == quantity %} active {% endif %}
+                    {% if request.path == road %} active {% endif %}
+
+                    {% if request.path == information %} active {% endif %}
+
+                    {% if request.path == programming %} active {% endif %}
+                    {% if request.path == networking %} active {% endif %}
+                    {% if request.path == graphics %} active {% endif %}
+                    {% if request.path == servicing %} active {% endif %}
+
+                    {% if request.path == land %} active {% endif %}
+
+                    {% if request.path == cadastral %} active {% endif %}
+                    {% if request.path == topographical %} active {% endif %}
+                    {% if request.path == setting %} active {% endif %}
+                    {% if request.path == leveling %} active {% endif %}
+                    {% if request.path == baseMap %} active {% endif %}
+                    {% if request.path == mapMaking %} active {% endif %}
+                    {% if request.path == farmSurvey %} active {% endif %}
+                    {% if request.path == farmLand %} active {% endif %}
+                    {% if request.path == geographical %} active {% endif %}
+                    {% if request.path == database %} active {% endif %}
+                    {% if request.path == landMarketing %} active {% endif %}
+                    {% if request.path == generalConsultancy %} active {% endif %}
+                    {% if request.path == printing %} active {% endif %}">
+                        <a href="#">our services<span class="caret"></span></a>
+                        <ul>
+                            <li>
+                                <a href="#">Information Technology &raquo;</a>
+                                <ul>
+                                    <li {%if request.path == programming %} class="active" {% endif %} ><a href="{% url 'services:software' %}">Software</a></li>
+                                    <li {%if request.path == networking %} class="active" {% endif %} ><a href="{% url 'services:networking' %}">Networking</a></li>
+                                    <li {%if request.path == graphics %} class="active" {% endif %} ><a href="{% url 'services:graphics' %}">Computer Graphics</a></li>
+                                    <li {%if request.path == servicing %} class="active" {% endif %} ><a href="{% url 'services:servicing' %}">Computer Servicing</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Land Surveying &raquo;</a>
+                                <ul>
+                                    <li {%if request.path == cadastral %} class="active" {% endif %} ><a href="{% url 'services:cadastral' %}">Cadastral Survey</a></li>
+                                    <li {%if request.path == topographical %} class="active" {% endif %} ><a href="{% url 'services:topographical' %}">Topographical Survey</a></li>
+                                    <li {%if request.path == setting %} class="active" {% endif %} ><a href="{% url 'services:settingOut' %}">Setting out of Layout</a></li>
+                                    <li {%if request.path == leveling %} class="active" {% endif %} ><a href="{% url 'services:leveling' %}">Leveling</a></li>
+                                    <li {%if request.path == baseMap %} class="active" {% endif %} ><a href="{% url 'services:baseMap' %}">Base Map Preparation</a></li>
+                                    <li {%if request.path == mapMaking %} class="active" {% endif %} ><a href="{% url 'services:mapMaking' %}">Map Making</a></li>
+                                    <li {%if request.path == geographical %} class="active" {% endif %} ><a href="{% url 'services:geographical' %}">Geographical Information Systems</a></li>
+                                    <li {%if request.path == database %} class="active" {% endif %} ><a href="{% url 'services:database' %}">Database Creation</a></li>
+                                    <li {%if request.path == landMarketing %} class="active" {% endif %} ><a href="{% url 'services:landMarketing' %}">Land Marketing</a></li>
+                                    <li {%if request.path == generalConsultancy %} class="active" {% endif %} ><a href="{% url 'services:generalConsultancy' %}">networking</a></li>
+                                    <li {%if request.path == farmLand %} class="active" {% endif %} ><a href="{% url 'services:farmLand' %}">Farm Land Division</a></li>
+                                    <li {%if request.path == farmSurvey %} class="active" {% endif %} ><a href="{% url 'services:farmSurvey' %}">Farm Survey</a></li>
+                                </ul>
+                            </li>
+                            <li {%if request.path == manufacturing %} class="active" {% endif %} ><a href="{% url 'services:manufacturing' %}">Manufacturing and Selling</a></li>
+                            <li {%if request.path == building %} class="active" {% endif %} ><a href="{% url 'services:building' %}">Building Construction</a></li>
+                            <li {%if request.path == structural %} class="active" {% endif %} ><a href="{% url 'services:structural' %}">Structural and Architectural Works</a></li>
+                            <li {%if request.path == quantity %} class="active" {% endif %} ><a href="{% url 'services:quantity' %}">Quantity Surveying</a></li>
+                            <li {%if request.path == road %} class="active" {% endif %} ><a href="{% url 'services:road' %}">Road Construction</a></li>
+                            <li {%if request.path == printing %} class="active" {% endif %} ><a href="{% url 'services:printing' %}">Printing Press</a></li>
+                        </ul>
+                    </li>
+
+                    {% url 'products:products' as products %}
+                    <li {% if request.path == products %} class="active" {% endif %}><a href="{% url 'products:products' %}">our products</a></li>
+
+                    {% url 'projects:projectsCompleted' as completed %}
+                    {% url 'projects:projectsUnderDevelopment' as development %}
+                    <li class="
+                    {% if request.path == completed %} active {% endif %}
+                    {% if request.path == development %} active {% endif %}">
+                        <a href="#">our projects<span class="caret"></span></a>
+                        <ul>
+                            <li {%if request.path == completed %} class="active" {% endif %} ><a href="{% url 'projects:projectsCompleted' %}">Completed</a></li>
+                            <li {%if request.path == development %} class="active" {% endif %} ><a href="{% url 'projects:projectsUnderDevelopment' %}">Under Development</a></li>
+                        </ul>
+                    </li>
+                    {% url 'contact:contact' as contact %}
+                    <li {% if request.path == contact %} class="active" {% endif %}><a href="{% url 'contact:contact' %}">contact us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+{% block banner %}
+    <div id="sliderFrame">
+        <div id="slider">
+            <img class="image-responsive" src="{% static 'layout/img/banner1.png' %}"/>
+            <img class="image-responsive" src="{% static 'layout/img/banner2.png' %}" />
+            <img class="image-responsive" src="{% static 'layout/img/banner3.png' %}" />
+            <img class="image-responsive" src="{% static 'layout/img/banner4.png' %}" />
+            <img class="image-responsive" src="{% static 'layout/img/banner5.png' %}" alt="Welcome to Menucool.com"/>
+            <img class="image-responsive" src="{% static 'layout/img/banner6.png' %}" alt="one"/>
+            <img class="image-responsive" src="{% static 'layout/img/banner7.png' %}" alt="two"/>
+            <img class="image-responsive" src="{% static 'layout/img/banner8.png' %}" alt="three"/>
+            <img class="image-responsive" src="{% static 'layout/img/banner9.png' %}" alt="five"/>
+            <img class="image-responsive" src="{% static 'layout/img/banner10.png' %}" alt="five"/>
+        </div>
+    </div>
+{% endblock %}
+{% block static_banner %}
+
+{% endblock %}
+{% block content %}
+
+{% endblock %}
+
+
+{% block cont %}
+    <div class="cont"></div>
+{% endblock %}
+
+</body>
+</html>
